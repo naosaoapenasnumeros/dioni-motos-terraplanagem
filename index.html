@@ -1,340 +1,404 @@
-DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Dioni Motos Racing | Dioni Terraplanagem</title>
+  <title>Dioni Motos Racing & Terraplanagem</title>
 
-<style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #080808;
-    color: white;
-    line-height: 1.6;
-}
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111;
+      color: #fff;
+      line-height: 1.6;
+    }
 
-header {
-    background: linear-gradient(135deg, #111 0%, #000 100%);
-    text-align: center;
-    padding: 40px 20px;
-    border-bottom: 4px solid #f5c400;
-}
+    header {
+      background: linear-gradient(135deg, #050505, #1a1a1a);
+      text-align: center;
+      padding: 35px 20px;
+      border-bottom: 4px solid #ffd400;
+    }
 
-header img {
-    width: 170px;
-    max-width: 80%;
-    margin-bottom: 20px;
-}
+    header img {
+      width: 180px;
+      max-width: 80%;
+      margin-bottom: 15px;
+    }
 
-h1 {
-    font-size: 35px;
-    color: #f5c400;
-    margin-bottom: 8px;
-}
-
-.subtitle {
-    font-size: 18px;
-    color: #ddd;
-}
-
-.container {
-    width: 92%;
-    max-width: 1100px;
-    margin: auto;
-}
-
-section {
-    padding: 50px 0;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 30px;
-    margin-bottom: 30px;
-    color: #f5c400;
-}
-
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 15px;
-}
-
-.card {
-    background: #151515;
-    padding: 25px 15px;
-    text-align: center;
-    border-radius: 15px;
-    border: 1px solid #333;
-}
-
-.card h3 {
-    color: #f5c400;
-    margin-bottom: 8px;
-}
-
-.photos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 15px;
-}
-
-.photos img {
-    width: 100%;
-    height: 230px;
-    object-fit: cover;
-    border-radius: 15px;
-    border: 2px solid #333;
-}
-
-.terra {
-    background: #111;
-    border-top: 3px solid #e00000;
-    border-bottom: 3px solid #e00000;
-}
-
-.logo-terra {
-    display: block;
-    width: 170px;
-    max-width: 80%;
-    margin: 0 auto 25px;
-}
-
-.buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 25px;
-}
-
-.button {
-    display: inline-block;
-    text-decoration: none;
-    padding: 14px 22px;
-    border-radius: 30px;
-    font-weight: bold;
-    color: #000;
-    background: #f5c400;
-}
-
-.button.red {
-    background: #e00000;
-    color: white;
-}
-
-.button.dark {
-    background: white;
-    color: black;
-}
-
-.contact {
-    text-align: center;
-}
-
-.contact p {
-    margin: 10px 0;
-    color: #ddd;
-}
-
-footer {
-    background: #000;
-    text-align: center;
-    padding: 25px 15px;
-    color: #888;
-    border-top: 1px solid #333;
-}
-
-@media (max-width: 500px) {
     h1 {
-        font-size: 28px;
+      font-size: 32px;
+      color: #ffd400;
+      text-transform: uppercase;
     }
 
-    .section-title {
-        font-size: 25px;
+    .subtitle {
+      color: #ddd;
+      margin: 8px 0 20px;
+      font-size: 17px;
     }
-}
-</style>
+
+    .btn {
+      display: inline-block;
+      background: #ffd400;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 13px 22px;
+      border-radius: 8px;
+      margin: 5px;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      background: #ffea55;
+    }
+
+    .btn-red {
+      background: #e00000;
+      color: #fff;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 55px 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #ffd400;
+      font-size: 28px;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+    }
+
+    .intro {
+      text-align: center;
+      color: #ddd;
+      max-width: 800px;
+      margin: -15px auto 35px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: #1c1c1c;
+      border: 1px solid #333;
+      border-left: 4px solid #ffd400;
+      padding: 22px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .card h3 {
+      color: #ffd400;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: #ccc;
+      font-size: 14px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid #333;
+    }
+
+    .terra {
+      background: #181818;
+      border-top: 4px solid #e00000;
+      border-bottom: 4px solid #ffd400;
+    }
+
+    .terra-logo {
+      display: block;
+      width: 210px;
+      max-width: 80%;
+      margin: 0 auto 20px;
+    }
+
+    .contact {
+      text-align: center;
+      background: #050505;
+      border-top: 3px solid #ffd400;
+    }
+
+    .contact p {
+      margin: 10px 0;
+      color: #ddd;
+    }
+
+    .contact strong {
+      color: #ffd400;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      background: #000;
+      color: #888;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 25px;
+      }
+
+      h2 {
+        font-size: 23px;
+      }
+
+      header {
+        padding: 25px 15px;
+      }
+
+      section {
+        padding: 40px 15px;
+      }
+
+      .gallery img {
+        height: 210px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-    <img src="logo-oficina.png" alt="Dioni Motos Racing">
-    
+  <!-- =========================
+       DIONI MOTOS RACING
+  ========================== -->
+
+  <header>
+    <img src="IMG_4675.png" alt="Dioni Motos Racing">
+
     <h1>Dioni Motos Racing</h1>
-    <p class="subtitle">Mecânica • Revisão • Preparação • Serviços em geral</p>
 
-    <div class="buttons">
-        <a class="button" href="https://wa.me/5551998230264">
-            💬 Falar no WhatsApp
-        </a>
+    <p class="subtitle">
+      Mecânica de motos • Revisões • Manutenção • Preparação
+    </p>
 
-        <a class="button dark" href="#servicos">
-            🔧 Ver serviços
-        </a>
+    <a
+      class="btn"
+      href="https://wa.me/5551998230264"
+      target="_blank">
+      💬 Fale conosco pelo WhatsApp
+    </a>
+  </header>
+
+
+  <section id="servicos">
+
+    <h2>Nossos Serviços</h2>
+
+    <p class="intro">
+      Cuidamos da sua moto com responsabilidade, qualidade e experiência.
+      Trabalhamos com diversos tipos de serviços e manutenção.
+    </p>
+
+    <div class="services">
+
+      <div class="card">
+        <h3>🔧 Mecânica</h3>
+        <p>Manutenção e reparos em motocicletas.</p>
+      </div>
+
+      <div class="card">
+        <h3>🛠️ Revisão</h3>
+        <p>Revisões completas para manter sua moto em dia.</p>
+      </div>
+
+      <div class="card">
+        <h3>🛢️ Troca de óleo</h3>
+        <p>Troca de óleo e manutenção preventiva.</p>
+      </div>
+
+      <div class="card">
+        <h3>⚡ Elétrica</h3>
+        <p>Diagnóstico e manutenção elétrica.</p>
+      </div>
+
+      <div class="card">
+        <h3>🛑 Freios</h3>
+        <p>Manutenção e revisão do sistema de freios.</p>
+      </div>
+
+      <div class="card">
+        <h3>🏍️ Preparação</h3>
+        <p>Serviços e preparação para motocicletas.</p>
+      </div>
+
     </div>
-</header>
+
+  </section>
 
 
-<section id="servicos">
-<div class="container">
+  <section>
 
-<h2 class="section-title">🏍️ Nossos Serviços</h2>
+    <h2>Alguns dos nossos serviços</h2>
 
-<div class="card-grid">
+    <div class="gallery">
 
-<div class="card">
-<h3>🔧 Mecânica</h3>
-<p>Serviços e manutenção em geral.</p>
-</div>
+      <img
+        src="IMG_4138.jpeg"
+        alt="Moto em manutenção">
 
-<div class="card">
-<h3>🛠️ Revisão</h3>
-<p>Revisão e manutenção preventiva.</p>
-</div>
+      <img
+        src="3fb33d21-fadf-497d-94fd-03dae75690ff.jpeg"
+        alt="Serviço em motocicleta">
 
-<div class="card">
-<h3>🛢️ Troca de óleo</h3>
-<p>Troca e manutenção.</p>
-</div>
+    </div>
 
-<div class="card">
-<h3>⚡ Elétrica</h3>
-<p>Serviços elétricos em geral.</p>
-</div>
-
-<div class="card">
-<h3>🛑 Freios</h3>
-<p>Manutenção e revisão dos freios.</p>
-</div>
-
-<div class="card">
-<h3>🏁 Preparação</h3>
-<p>Preparação e serviços especiais.</p>
-</div>
-
-</div>
-</div>
-</section>
+  </section>
 
 
-<section>
-<div class="container">
+  <!-- =========================
+       DIONI TERRAPLANAGEM
+  ========================== -->
 
-<h2 class="section-title">📸 Dioni Motos Racing</h2>
+  <section class="terra">
 
-<div class="photos">
+    <img
+      class="terra-logo"
+      src="IMG_4674.png"
+      alt="Dioni Terraplanagem">
 
-<img src="oficina.jpg" alt="Dioni Motos Racing">
+    <h2>Dioni Terraplanagem</h2>
 
-<img src="moto1.jpg" alt="Moto em manutenção">
+    <p class="intro">
+      Serviços de terraplanagem, escavação, nivelamento, limpeza de terrenos
+      e preparação de áreas.
+    </p>
 
-<img src="moto2.jpg" alt="Serviço em motocicleta">
+    <div class="services">
 
-</div>
+      <div class="card">
+        <h3>🚜 Escavações</h3>
+        <p>Escavações para diferentes tipos de obras e projetos.</p>
+      </div>
 
-</div>
-</section>
+      <div class="card">
+        <h3>📐 Nivelamento</h3>
+        <p>Preparação e nivelamento de terrenos.</p>
+      </div>
 
+      <div class="card">
+        <h3>🌳 Limpeza</h3>
+        <p>Limpeza e preparação de áreas e terrenos.</p>
+      </div>
 
-<section class="terra">
+      <div class="card">
+        <h3>🛣️ Acessos</h3>
+        <p>Preparação de acessos e entradas.</p>
+      </div>
 
-<div class="container">
+      <div class="card">
+        <h3>🚧 Terraplanagem</h3>
+        <p>Serviços completos de movimentação de terra.</p>
+      </div>
 
-<img class="logo-terra" src="logo-terra.png" alt="Dioni Terraplanagem">
+    </div>
 
-<h2 class="section-title">🚜 Dioni Terraplanagem</h2>
-
-<p style="text-align:center; color:#ddd; font-size:18px;">
-Serviços de terraplanagem, escavação, nivelamento e muito mais.
-</p>
-
-<div class="card-grid" style="margin-top:30px;">
-
-<div class="card">
-<h3>🚜 Escavações</h3>
-<p>Escavações de diversos tipos.</p>
-</div>
-
-<div class="card">
-<h3>📐 Nivelamento</h3>
-<p>Nivelamento e preparação do terreno.</p>
-</div>
-
-<div class="card">
-<h3>🌳 Limpeza</h3>
-<p>Limpeza e preparação de áreas.</p>
-</div>
-
-<div class="card">
-<h3>🛣️ Acessos</h3>
-<p>Abertura e preparação de acessos.</p>
-</div>
-
-<div class="card">
-<h3>🏗️ Terraplanagem</h3>
-<p>Serviços completos de terraplanagem.</p>
-</div>
-
-</div>
-
-<div class="photos" style="margin-top:30px;">
-
-<img src="terra1.jpg" alt="Serviço de terraplanagem">
-
-<img src="terra2.jpg" alt="Máquina trabalhando">
-
-</div>
-
-</div>
-</section>
+  </section>
 
 
-<section class="contact">
+  <section>
 
-<div class="container">
+    <h2>Terraplanagem em ação</h2>
 
-<h2 class="section-title">📍 Entre em contato</h2>
+    <div class="gallery">
 
-<p>📞 <strong>(51) 99823-0264</strong></p>
+      <img
+        src="IMG_4117.png"
+        alt="Serviço de terraplanagem">
 
-<p>
-📍 R. Visconde de Mauá, 1079 - Bairro Sander<br>
-Três Coroas - RS
-</p>
+      <img
+        src="d694a499-97f0-455a-bf3c-a2d0b08bc8d6.jpeg"
+        alt="Serviço de terraplanagem">
 
-<div class="buttons">
+    </div>
 
-<a class="button" href="https://wa.me/5551998230264">
-💬 WhatsApp
-</a>
-
-<a class="button red" href="https://www.instagram.com/dionimotosracing/">
-📸 Instagram Dioni Motos
-</a>
-
-<a class="button dark" href="https://www.instagram.com/dioniterraplanagem_/">
-📸 Instagram Terraplanagem
-</a>
-
-</div>
-
-</div>
-</section>
+  </section>
 
 
-<footer>
-<p>© 2026 Dioni Motos Racing & Dioni Terraplanagem</p>
-<p>Três Coroas - RS</p>
-</footer>
+  <!-- =========================
+       CONTATO
+  ========================== -->
+
+  <section class="contact">
+
+    <h2>Entre em contato</h2>
+
+    <p>
+      📞 <strong>WhatsApp:</strong>
+      (51) 99823-0264
+    </p>
+
+    <p>
+      📍 <strong>Endereço:</strong><br>
+      R. Visconde de Mauá, 1079<br>
+      Bairro Sander — Três Coroas - RS
+    </p>
+
+    <p>
+      📱 <strong>Instagram:</strong>
+    </p>
+
+    <a
+      class="btn"
+      href="https://instagram.com/dionimotosracing"
+      target="_blank">
+      @dionimotosracing
+    </a>
+
+    <a
+      class="btn btn-red"
+      href="https://instagram.com/dioniterraplanagem_"
+      target="_blank">
+      @dioniterraplanagem_
+    </a>
+
+    <br><br>
+
+    <a
+      class="btn"
+      href="https://wa.me/5551998230264"
+      target="_blank">
+      💬 Chamar no WhatsApp
+    </a>
+
+  </section>
+
+
+  <footer>
+    © 2026 Dioni Motos Racing & Dioni Terraplanagem
+    <br>
+    Qualidade, experiência e confiança.
+  </footer>
 
 </body>
 </html>
