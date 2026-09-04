@@ -11,55 +11,80 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #111;
+      background: #080808;
       color: #fff;
       line-height: 1.6;
     }
 
+    /* TOPO */
     header {
-      background: linear-gradient(135deg, #050505, #1a1a1a);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 35px 20px;
-      border-bottom: 4px solid #ffd400;
+      padding: 40px 20px;
+      background:
+        radial-gradient(circle at top, #292929 0%, #0b0b0b 48%, #000 100%);
+      border-bottom: 5px solid #ffd400;
     }
 
     header img {
-      width: 180px;
-      max-width: 80%;
-      margin-bottom: 15px;
+      width: 260px;
+      max-width: 85%;
+      margin-bottom: 25px;
+      filter: drop-shadow(0 0 18px rgba(255, 212, 0, 0.25));
+    }
+
+    .tag {
+      color: #ffd400;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
     }
 
     h1 {
-      font-size: 32px;
-      color: #ffd400;
+      font-size: clamp(32px, 8vw, 62px);
+      line-height: 1.05;
       text-transform: uppercase;
+      margin-bottom: 18px;
     }
 
-    .subtitle {
-      color: #ddd;
-      margin: 8px 0 20px;
-      font-size: 17px;
+    h1 span {
+      color: #ffd400;
+    }
+
+    .hero-text {
+      max-width: 700px;
+      color: #ccc;
+      font-size: 18px;
+      margin-bottom: 30px;
     }
 
     .btn {
       display: inline-block;
+      padding: 15px 24px;
+      margin: 6px;
+      border-radius: 50px;
       background: #ffd400;
       color: #000;
       text-decoration: none;
       font-weight: bold;
-      padding: 13px 22px;
-      border-radius: 8px;
-      margin: 5px;
-      transition: 0.2s;
+      transition: 0.3s;
+      box-shadow: 0 5px 20px rgba(255, 212, 0, 0.15);
     }
 
     .btn:hover {
-      transform: scale(1.05);
-      background: #ffea55;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(255, 212, 0, 0.3);
     }
 
     .btn-red {
@@ -67,121 +92,276 @@
       color: #fff;
     }
 
+    /* SEÇÕES */
     section {
-      max-width: 1100px;
+      max-width: 1150px;
       margin: auto;
-      padding: 55px 20px;
+      padding: 80px 20px;
+    }
+
+    .section-label {
+      text-align: center;
+      color: #e00000;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
     }
 
     h2 {
       text-align: center;
-      color: #ffd400;
-      font-size: 28px;
-      margin-bottom: 30px;
+      font-size: clamp(28px, 6vw, 44px);
       text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h2 span {
+      color: #ffd400;
     }
 
     .intro {
-      text-align: center;
-      color: #ddd;
       max-width: 800px;
-      margin: -15px auto 35px;
+      margin: 0 auto 45px;
+      text-align: center;
+      color: #bbb;
+      font-size: 17px;
     }
 
+    /* CARDS */
     .services {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
       gap: 18px;
     }
 
     .card {
-      background: #1c1c1c;
-      border: 1px solid #333;
-      border-left: 4px solid #ffd400;
-      padding: 22px;
-      border-radius: 10px;
+      background: linear-gradient(145deg, #202020, #111);
+      border: 1px solid #303030;
+      border-radius: 16px;
+      padding: 28px 20px;
       text-align: center;
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: #ffd400;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      border-color: #ffd400;
+    }
+
+    .card .icon {
+      font-size: 35px;
+      margin-bottom: 12px;
     }
 
     .card h3 {
       color: #ffd400;
       margin-bottom: 8px;
+      font-size: 20px;
     }
 
     .card p {
-      color: #ccc;
+      color: #aaa;
       font-size: 14px;
     }
 
+    /* DESTAQUE */
+    .highlight {
+      margin: 20px auto 50px;
+      padding: 30px;
+      max-width: 900px;
+      text-align: center;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #151515, #252525);
+      border: 1px solid #333;
+    }
+
+    .highlight strong {
+      color: #ffd400;
+      font-size: 22px;
+    }
+
+    /* GALERIA */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
+      gap: 16px;
     }
 
     .gallery img {
       width: 100%;
-      height: 230px;
+      height: 270px;
       object-fit: cover;
-      border-radius: 10px;
-      border: 2px solid #333;
+      border-radius: 15px;
+      border: 2px solid #292929;
+      transition: 0.35s;
+      display: block;
     }
 
-    .terra {
-      background: #181818;
-      border-top: 4px solid #e00000;
-      border-bottom: 4px solid #ffd400;
+    .gallery img:hover {
+      transform: scale(1.025);
+      border-color: #ffd400;
+    }
+
+    /* MOTO */
+    .moto-section {
+      background: #0b0b0b;
+    }
+
+    .moto-banner {
+      padding: 35px 20px;
+      margin-bottom: 45px;
+      text-align: center;
+      background: linear-gradient(135deg, #ffd400, #f2a900);
+      color: #000;
+      border-radius: 20px;
+    }
+
+    .moto-banner h3 {
+      font-size: 28px;
+      text-transform: uppercase;
+    }
+
+    .moto-banner p {
+      font-weight: bold;
+    }
+
+    /* TERRAPLANAGEM */
+    .terra-section {
+      max-width: none;
+      background:
+        linear-gradient(rgba(0,0,0,.82), rgba(0,0,0,.94)),
+        #171717;
+      border-top: 5px solid #e00000;
+      border-bottom: 5px solid #ffd400;
+    }
+
+    .terra-content {
+      max-width: 1150px;
+      margin: auto;
     }
 
     .terra-logo {
       display: block;
-      width: 210px;
+      width: 260px;
       max-width: 80%;
-      margin: 0 auto 20px;
+      margin: 0 auto 25px;
+      filter: drop-shadow(0 0 18px rgba(255, 212, 0, .2));
     }
 
-    .contact {
+    .terra-section .card::before {
+      background: #e00000;
+    }
+
+    .terra-section .card h3 {
+      color: #ffd400;
+    }
+
+    /* CTA */
+    .cta {
+      max-width: none;
       text-align: center;
-      background: #050505;
+      background:
+        radial-gradient(circle at center, #252525 0%, #050505 70%);
       border-top: 3px solid #ffd400;
     }
 
+    .cta h2 {
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      color: #bbb;
+      max-width: 700px;
+      margin: 0 auto 25px;
+      font-size: 18px;
+    }
+
+    /* CONTATO */
+    .contact {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 45px 20px;
+      text-align: center;
+      background: #111;
+      border: 1px solid #292929;
+      border-radius: 20px;
+    }
+
     .contact p {
-      margin: 10px 0;
-      color: #ddd;
+      margin: 14px 0;
+      color: #ccc;
     }
 
     .contact strong {
       color: #ffd400;
     }
 
-    footer {
-      text-align: center;
-      padding: 25px 15px;
-      background: #000;
-      color: #888;
-      font-size: 13px;
+    .social {
+      margin-top: 25px;
     }
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 25px;
-      }
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 30px 15px;
+      background: #000;
+      color: #777;
+      font-size: 13px;
+      border-top: 1px solid #222;
+    }
 
-      h2 {
-        font-size: 23px;
-      }
+    footer strong {
+      color: #ffd400;
+    }
+
+    /* CELULAR */
+    @media (max-width: 600px) {
 
       header {
-        padding: 25px 15px;
+        min-height: 92vh;
+        padding: 30px 15px;
+      }
+
+      header img {
+        width: 220px;
+      }
+
+      .hero-text {
+        font-size: 16px;
       }
 
       section {
-        padding: 40px 15px;
+        padding: 60px 15px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
       }
 
       .gallery img {
-        height: 210px;
+        height: 250px;
+      }
+
+      .card {
+        padding: 25px 18px;
+      }
+
+      .btn {
+        width: 90%;
+        max-width: 330px;
       }
     }
   </style>
@@ -189,215 +369,382 @@
 
 <body>
 
-  <!-- =========================
-       DIONI MOTOS RACING
-  ========================== -->
+  <!-- ============================= -->
+  <!-- INÍCIO -->
+  <!-- ============================= -->
 
   <header>
+
     <img src="IMG_4675.png" alt="Dioni Motos Racing">
 
-    <h1>Dioni Motos Racing</h1>
+    <div class="tag">
+      Dioni Motos Racing & Terraplanagem
+    </div>
 
-    <p class="subtitle">
-      Mecânica de motos • Revisões • Manutenção • Preparação
+    <h1>
+      Seu projeto.<br>
+      <span>Nosso trabalho.</span>
+    </h1>
+
+    <p class="hero-text">
+      Mecânica, manutenção e preparação de motos.
+      Escavação, terraplanagem e nivelamento de terrenos.
+      Trabalho realizado com dedicação, responsabilidade e experiência.
     </p>
 
-    <a
-      class="btn"
-      href="https://wa.me/5551998230264"
-      target="_blank">
-      💬 Fale conosco pelo WhatsApp
-    </a>
+    <div>
+      <a class="btn"
+         href="https://wa.me/5551998230264"
+         target="_blank">
+        💬 Falar pelo WhatsApp
+      </a>
+
+      <a class="btn btn-red" href="#servicos">
+        Conheça nossos serviços ↓
+      </a>
+    </div>
+
   </header>
 
 
-  <section id="servicos">
+  <!-- ============================= -->
+  <!-- MOTOS -->
+  <!-- ============================= -->
 
-    <h2>Nossos Serviços</h2>
+  <section id="servicos" class="moto-section">
+
+    <div class="section-label">
+      🏍️ Dioni Motos Racing
+    </div>
+
+    <h2>
+      Mecânica & <span>Preparação</span>
+    </h2>
 
     <p class="intro">
-      Cuidamos da sua moto com responsabilidade, qualidade e experiência.
-      Trabalhamos com diversos tipos de serviços e manutenção.
+      Sua moto precisa de manutenção, revisão ou preparação?
+      Na Dioni Motos Racing, cuidamos da sua motocicleta com atenção
+      em cada detalhe, buscando qualidade, segurança e bom desempenho.
     </p>
+
+    <div class="moto-banner">
+
+      <h3>
+        🏁 Sua moto pronta para o próximo desafio
+      </h3>
+
+      <p>
+        Manutenção, cuidados e preparação para você aproveitar sua moto.
+      </p>
+
+    </div>
 
     <div class="services">
 
       <div class="card">
-        <h3>🔧 Mecânica</h3>
-        <p>Manutenção e reparos em motocicletas.</p>
+        <div class="icon">🔧</div>
+        <h3>Mecânica</h3>
+        <p>
+          Manutenção e reparos em motocicletas.
+        </p>
       </div>
 
       <div class="card">
-        <h3>🛠️ Revisão</h3>
-        <p>Revisões completas para manter sua moto em dia.</p>
+        <div class="icon">🛠️</div>
+        <h3>Revisão</h3>
+        <p>
+          Cuidados e revisão para manter sua moto em boas condições.
+        </p>
       </div>
 
       <div class="card">
-        <h3>🛢️ Troca de óleo</h3>
-        <p>Troca de óleo e manutenção preventiva.</p>
+        <div class="icon">🛢️</div>
+        <h3>Manutenção</h3>
+        <p>
+          Serviços de manutenção preventiva e cuidados gerais.
+        </p>
       </div>
 
       <div class="card">
-        <h3>⚡ Elétrica</h3>
-        <p>Diagnóstico e manutenção elétrica.</p>
+        <div class="icon">⚡</div>
+        <h3>Elétrica</h3>
+        <p>
+          Diagnóstico e manutenção dos componentes elétricos.
+        </p>
       </div>
 
       <div class="card">
-        <h3>🛑 Freios</h3>
-        <p>Manutenção e revisão do sistema de freios.</p>
+        <div class="icon">🛑</div>
+        <h3>Freios</h3>
+        <p>
+          Verificação e manutenção do sistema de freios.
+        </p>
       </div>
 
       <div class="card">
-        <h3>🏍️ Preparação</h3>
-        <p>Serviços e preparação para motocicletas.</p>
+        <div class="icon">🏍️</div>
+        <h3>Preparação</h3>
+        <p>
+          Serviços e preparação para motocicletas.
+        </p>
       </div>
 
     </div>
 
   </section>
 
+
+  <!-- GALERIA MOTOS -->
 
   <section>
 
-    <h2>Alguns dos nossos serviços</h2>
-
-    <div class="gallery">
-
-      <img
-        src="IMG_4138.jpeg"
-        alt="Moto em manutenção">
-
-      <img
-        src="3fb33d21-fadf-497d-94fd-03dae75690ff.jpeg"
-        alt="Serviço em motocicleta">
-
+    <div class="section-label">
+      Nosso trabalho
     </div>
 
-  </section>
-
-
-  <!-- =========================
-       DIONI TERRAPLANAGEM
-  ========================== -->
-
-  <section class="terra">
-
-    <img
-      class="terra-logo"
-      src="IMG_4674.png"
-      alt="Dioni Terraplanagem">
-
-    <h2>Dioni Terraplanagem</h2>
+    <h2>
+      Oficina em <span>ação</span>
+    </h2>
 
     <p class="intro">
-      Serviços de terraplanagem, escavação, nivelamento, limpeza de terrenos
-      e preparação de áreas.
+      Confira alguns registros dos nossos serviços e trabalhos realizados.
     </p>
-
-    <div class="services">
-
-      <div class="card">
-        <h3>🚜 Escavações</h3>
-        <p>Escavações para diferentes tipos de obras e projetos.</p>
-      </div>
-
-      <div class="card">
-        <h3>📐 Nivelamento</h3>
-        <p>Preparação e nivelamento de terrenos.</p>
-      </div>
-
-      <div class="card">
-        <h3>🌳 Limpeza</h3>
-        <p>Limpeza e preparação de áreas e terrenos.</p>
-      </div>
-
-      <div class="card">
-        <h3>🛣️ Acessos</h3>
-        <p>Preparação de acessos e entradas.</p>
-      </div>
-
-      <div class="card">
-        <h3>🚧 Terraplanagem</h3>
-        <p>Serviços completos de movimentação de terra.</p>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <h2>Terraplanagem em ação</h2>
 
     <div class="gallery">
 
-      <img
-        src="IMG_4117.png"
-        alt="Serviço de terraplanagem">
+      <img src="IMG_4138.jpeg" alt="Dioni Motos Racing">
 
-      <img
-        src="d694a499-97f0-455a-bf3c-a2d0b08bc8d6.jpeg"
-        alt="Serviço de terraplanagem">
+      <img src="3fb33d21-fadf-497d-94fd-03dae75690ff.jpeg"
+           alt="Serviço em motocicleta">
 
     </div>
 
   </section>
 
 
-  <!-- =========================
-       CONTATO
-  ========================== -->
+  <!-- ============================= -->
+  <!-- TERRAPLANAGEM -->
+  <!-- ============================= -->
+
+  <section class="terra-section">
+
+    <div class="terra-content">
+
+      <img
+        class="terra-logo"
+        src="IMG_4674.png"
+        alt="Dioni Terraplanagem">
+
+      <div class="section-label">
+        🚜 Dioni Terraplanagem
+      </div>
+
+      <h2>
+        Seu terreno.<br>
+        <span>Preparado para o seu projeto.</span>
+      </h2>
+
+      <p class="intro">
+        Trabalhamos com escavações, terraplanagem, nivelamento e preparação
+        de áreas. Utilizamos máquinas adequadas para realizar diferentes
+        tipos de trabalhos em terrenos e obras.
+      </p>
+
+      <div class="highlight">
+
+        <strong>
+          🚧 Do terreno ao projeto.
+        </strong>
+
+        <p>
+          Preparação, movimentação de terra e nivelamento
+          para deixar a área pronta para a próxima etapa.
+        </p>
+
+      </div>
+
+      <div class="services">
+
+        <div class="card">
+          <div class="icon">🚜</div>
+          <h3>Escavações</h3>
+          <p>
+            Escavações para diferentes tipos de obras e projetos.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🏗️</div>
+          <h3>Terraplanagem</h3>
+          <p>
+            Movimentação e preparação de terrenos.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">📐</div>
+          <h3>Nivelamento</h3>
+          <p>
+            Preparação e nivelamento de áreas.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🌳</div>
+          <h3>Limpeza</h3>
+          <p>
+            Limpeza e preparação de áreas e terrenos.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🚧</div>
+          <h3>Preparação</h3>
+          <p>
+            Preparação de terrenos para diferentes necessidades.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🏠</div>
+          <h3>Seu projeto</h3>
+          <p>
+            Conte para nós o que você precisa realizar no seu terreno.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- GALERIA TERRAPLANAGEM -->
+
+  <section>
+
+    <div class="section-label">
+      Resultado na prática
+    </div>
+
+    <h2>
+      Terraplanagem em <span>ação</span>
+    </h2>
+
+    <p class="intro">
+      Alguns registros dos trabalhos realizados pela Dioni Terraplanagem.
+    </p>
+
+    <div class="gallery">
+
+      <img src="IMG_4117.png"
+           alt="Máquina trabalhando em terraplanagem">
+
+      <img src="d694a499-97f0-455a-bf3c-a2d0b08bc8d6.jpeg"
+           alt="Serviço de terraplanagem">
+
+    </div>
+
+  </section>
+
+
+  <!-- ============================= -->
+  <!-- CHAMADA -->
+  <!-- ============================= -->
+
+  <section class="cta">
+
+    <div class="section-label">
+      Fale com a gente
+    </div>
+
+    <h2>
+      Vamos começar <span>seu projeto?</span>
+    </h2>
+
+    <p>
+      Precisa cuidar da sua moto ou preparar seu terreno?
+      Entre em contato e converse conosco sobre o serviço que você precisa.
+    </p>
+
+    <a class="btn"
+       href="https://wa.me/5551998230264"
+       target="_blank">
+      💬 SOLICITAR ORÇAMENTO
+    </a>
+
+  </section>
+
+
+  <!-- ============================= -->
+  <!-- CONTATO -->
+  <!-- ============================= -->
 
   <section class="contact">
 
-    <h2>Entre em contato</h2>
+    <h2>
+      <span>Contato</span>
+    </h2>
 
     <p>
-      📞 <strong>WhatsApp:</strong>
+      📞 <strong>WhatsApp</strong><br>
       (51) 99823-0264
     </p>
 
     <p>
-      📍 <strong>Endereço:</strong><br>
+      📍 <strong>Endereço</strong><br>
       R. Visconde de Mauá, 1079<br>
       Bairro Sander — Três Coroas - RS
     </p>
 
-    <p>
-      📱 <strong>Instagram:</strong>
-    </p>
+    <div class="social">
 
-    <a
-      class="btn"
-      href="https://instagram.com/dionimotosracing"
-      target="_blank">
-      @dionimotosracing
-    </a>
+      <p>
+        📸 <strong>Instagram</strong>
+      </p>
 
-    <a
-      class="btn btn-red"
-      href="https://instagram.com/dioniterraplanagem_"
-      target="_blank">
-      @dioniterraplanagem_
-    </a>
+      <a class="btn"
+         href="https://instagram.com/dionimotosracing"
+         target="_blank">
+        🏍️ @dionimotosracing
+      </a>
 
-    <br><br>
+      <a class="btn btn-red"
+         href="https://instagram.com/dioniterraplanagem_"
+         target="_blank">
+        🚜 @dioniterraplanagem_
+      </a>
 
-    <a
-      class="btn"
-      href="https://wa.me/5551998230264"
-      target="_blank">
-      💬 Chamar no WhatsApp
+    </div>
+
+    <br>
+
+    <a class="btn"
+       href="https://wa.me/5551998230264"
+       target="_blank">
+      💬 CHAMAR NO WHATSAPP
     </a>
 
   </section>
 
 
+  <!-- ============================= -->
+  <!-- RODAPÉ -->
+  <!-- ============================= -->
+
   <footer>
-    © 2026 Dioni Motos Racing & Dioni Terraplanagem
+
+    <strong>DIONI MOTOS RACING & TERRAPLANAGEM</strong>
+
+    <br><br>
+
+    © 2026 — Todos os direitos reservados.
+
     <br>
-    Qualidade, experiência e confiança.
+
+    Qualidade • Experiência • Dedicação
+
   </footer>
 
 </body>
