@@ -61,7 +61,7 @@ header p {
     border-radius: 18px;
     border: 4px solid #ffd000;
 
-    background: #fff;
+    background: #000;
 
     display: flex;
     align-items: center;
@@ -70,8 +70,13 @@ header p {
     overflow: hidden;
 }
 
-/* FOTO DA OFICINA
-   FICA INTEIRA, SEM ZOOM E SEM CORTAR */
+/* ================= LOGO DA OFICINA ================= */
+
+/* 
+   A imagem original é um print.
+   O zoom corta as partes do print e deixa
+   somente o logo preenchendo o quadrado.
+*/
 
 .perfil.oficina img {
     width: 100%;
@@ -79,13 +84,13 @@ header p {
 
     display: block;
 
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
 
-    transform: none;
+    transform: scale(2.65);
 }
 
-/* FOTO DA TERRAPLANAGEM */
+/* ================= LOGO DA TERRAPLANAGEM ================= */
 
 .perfil.terra img {
     width: 100%;
@@ -93,10 +98,10 @@ header p {
 
     display: block;
 
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
 
-    transform: none;
+    transform: scale(2.05);
 }
 
 /* ================= TÍTULOS ================= */
@@ -241,6 +246,7 @@ footer strong {
     .botao {
         width: 100%;
     }
+
 }
 
 </style>
@@ -295,9 +301,7 @@ footer strong {
     </div>
 
 
-    <!-- ================================================= -->
-    <!-- SOMENTE FOTOS DA OFICINA / MOTOS                  -->
-    <!-- ================================================= -->
+    <!-- FOTOS SOMENTE DA OFICINA -->
 
     <div class="galeria">
 
@@ -339,9 +343,7 @@ footer strong {
 </section>
 
 
-<!-- ================================================= -->
-<!-- ==================== SEPARADOR ================== -->
-<!-- ================================================= -->
+<!-- ================= SEPARADOR ================= -->
 
 <div class="separador"></div>
 
@@ -357,10 +359,12 @@ footer strong {
         <!-- FOTO DE PERFIL DA TERRAPLANAGEM -->
 
         <div class="perfil terra">
+
             <img
                 src="IMG_4674.png"
                 alt="Dioni Terraplanagem"
             >
+
         </div>
 
         <h2>Dioni Terraplanagem</h2>
@@ -386,10 +390,7 @@ footer strong {
     </div>
 
 
-    <!-- ================================================= -->
-    <!-- SOMENTE FOTOS DA TERRAPLANAGEM                    -->
-    <!-- NENHUMA FOTO DE MOTO FICA AQUI                   -->
-    <!-- ================================================= -->
+    <!-- FOTOS SOMENTE DA TERRAPLANAGEM -->
 
     <div class="galeria">
 
@@ -431,9 +432,7 @@ footer strong {
 </section>
 
 
-<!-- ================================================= -->
-<!-- ===================== RODAPÉ ==================== -->
-<!-- ================================================= -->
+<!-- ================= RODAPÉ ================= -->
 
 <footer>
 
