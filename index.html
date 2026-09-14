@@ -19,8 +19,6 @@ body {
     color: white;
 }
 
-/* ================= HEADER ================= */
-
 header {
     background: #000;
     text-align: center;
@@ -38,8 +36,6 @@ header p {
     color: #ddd;
     margin-top: 10px;
 }
-
-/* ================= EMPRESAS ================= */
 
 .empresa {
     max-width: 900px;
@@ -72,12 +68,6 @@ header p {
 
 /* ================= LOGO DA OFICINA ================= */
 
-/* 
-   A imagem original é um print.
-   O zoom corta as partes do print e deixa
-   somente o logo preenchendo o quadrado.
-*/
-
 .perfil.oficina img {
     width: 100%;
     height: 100%;
@@ -87,7 +77,7 @@ header p {
     object-fit: cover;
     object-position: center;
 
-    transform: scale(2.65);
+    transform: scale(1.45);
 }
 
 /* ================= LOGO DA TERRAPLANAGEM ================= */
@@ -101,7 +91,7 @@ header p {
     object-fit: cover;
     object-position: center;
 
-    transform: scale(2.05);
+    transform: scale(1.35);
 }
 
 /* ================= TÍTULOS ================= */
@@ -122,7 +112,6 @@ header p {
     background: #1b1b1b;
     border: 1px solid #333;
     border-radius: 15px;
-
     padding: 25px;
     margin: 25px 0;
 }
@@ -142,7 +131,6 @@ header p {
 .galeria {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-
     gap: 15px;
     margin-top: 25px;
 }
@@ -165,24 +153,17 @@ header p {
 .botoes {
     display: flex;
     flex-wrap: wrap;
-
     justify-content: center;
     gap: 12px;
-
     margin-top: 30px;
 }
 
 .botao {
     display: inline-block;
-
     padding: 14px 20px;
-
     min-width: 180px;
-
     border-radius: 10px;
-
     text-decoration: none;
-
     font-weight: bold;
     text-align: center;
 }
@@ -202,23 +183,17 @@ header p {
 .separador {
     width: 90%;
     max-width: 850px;
-
     height: 4px;
-
     margin: 0 auto;
-
     background: #ffd000;
 }
 
-/* ================= FOOTER ================= */
+/* ================= RODAPÉ ================= */
 
 footer {
     background: #000;
-
     text-align: center;
-
     padding: 30px 20px;
-
     color: #aaa;
 }
 
@@ -254,22 +229,16 @@ footer strong {
 
 <body>
 
-
-<!-- ================================================= -->
-<!-- ===================== OFICINA ================== -->
-<!-- ================================================= -->
+<!-- ================= OFICINA ================= -->
 
 <header>
     <h1>Dioni Motos Racing</h1>
     <p>Oficina • Manutenção • Preparação</p>
 </header>
 
-
 <section class="empresa">
 
     <div class="titulo">
-
-        <!-- FOTO DE PERFIL DA OFICINA -->
 
         <div class="perfil oficina">
             <img
@@ -286,9 +255,6 @@ footer strong {
 
     </div>
 
-
-    <!-- SERVIÇOS DA OFICINA -->
-
     <div class="servicos">
 
         <h3>🏍️ Nossos serviços</h3>
@@ -300,8 +266,7 @@ footer strong {
 
     </div>
 
-
-    <!-- FOTOS SOMENTE DA OFICINA -->
+    <!-- SOMENTE FOTOS DA OFICINA -->
 
     <div class="galeria">
 
@@ -316,9 +281,6 @@ footer strong {
         >
 
     </div>
-
-
-    <!-- BOTÕES DA OFICINA -->
 
     <div class="botoes">
 
@@ -342,29 +304,19 @@ footer strong {
 
 </section>
 
-
-<!-- ================= SEPARADOR ================= -->
-
 <div class="separador"></div>
 
-
-<!-- ================================================= -->
 <!-- ================= TERRAPLANAGEM ================= -->
-<!-- ================================================= -->
 
 <section class="empresa">
 
     <div class="titulo">
 
-        <!-- FOTO DE PERFIL DA TERRAPLANAGEM -->
-
         <div class="perfil terra">
-
             <img
                 src="IMG_4674.png"
                 alt="Dioni Terraplanagem"
             >
-
         </div>
 
         <h2>Dioni Terraplanagem</h2>
@@ -374,9 +326,6 @@ footer strong {
         </p>
 
     </div>
-
-
-    <!-- SERVIÇOS DA TERRAPLANAGEM -->
 
     <div class="servicos">
 
@@ -389,8 +338,7 @@ footer strong {
 
     </div>
 
-
-    <!-- FOTOS SOMENTE DA TERRAPLANAGEM -->
+    <!-- SOMENTE FOTOS DA TERRAPLANAGEM -->
 
     <div class="galeria">
 
@@ -405,9 +353,6 @@ footer strong {
         >
 
     </div>
-
-
-    <!-- BOTÕES DA TERRAPLANAGEM -->
 
     <div class="botoes">
 
@@ -431,9 +376,6 @@ footer strong {
 
 </section>
 
-
-<!-- ================= RODAPÉ ================= -->
-
 <footer>
 
     <strong>Dioni Motos Racing</strong>
@@ -447,7 +389,6 @@ footer strong {
     </p>
 
 </footer>
-
 
 </body>
 </html>
