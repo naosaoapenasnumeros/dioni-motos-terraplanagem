@@ -8,1270 +8,404 @@
 
 <style>
 
-*{
-    box-sizing:border-box;
+* {
+    box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: white;
 }
 
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#111;
-    color:white;
-    overflow-x:hidden;
+header {
+    background: #000;
+    text-align: center;
+    padding: 35px 20px;
+    border-bottom: 4px solid #ffd000;
 }
 
-/* ================================================= */
-/* ====================== CAPA ===================== */
-/* ================================================= */
-
-.capa{
-    min-height:100vh;
-    position:relative;
-    overflow:hidden;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-
-    background:
-        radial-gradient(circle at 20% 50%,rgba(255,0,0,.18),transparent 35%),
-        radial-gradient(circle at 80% 50%,rgba(255,208,0,.18),transparent 35%),
-        linear-gradient(135deg,#050505,#151515,#050505);
-
-    transition:transform 1s ease, opacity 1s ease;
+header h1 {
+    margin: 0;
+    color: #ffd000;
+    font-size: 30px;
 }
 
-.capa::before{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background-image:
-        linear-gradient(45deg,rgba(255,255,255,.025) 25%,transparent 25%),
-        linear-gradient(-45deg,rgba(255,255,255,.02) 25%,transparent 25%);
-
-    background-size:35px 35px;
-    opacity:.4;
+header p {
+    color: #ddd;
+    margin-top: 10px;
 }
 
-.luz-vermelha{
-    position:absolute;
-    width:320px;
-    height:320px;
-    border-radius:50%;
-    background:#ff0000;
-    filter:blur(120px);
-    opacity:.15;
-    left:-120px;
-    top:35%;
+.empresa {
+    max-width: 900px;
+    margin: auto;
+    padding: 45px 20px;
 }
 
-.luz-amarela{
-    position:absolute;
-    width:320px;
-    height:320px;
-    border-radius:50%;
-    background:#ffd000;
-    filter:blur(120px);
-    opacity:.15;
-    right:-120px;
-    top:35%;
+.titulo {
+    text-align: center;
 }
 
-/* ================================================= */
-/* ====================== LOGOS ==================== */
-/* ================================================= */
+/* ================= FOTO DE PERFIL ================= */
 
-.logos-capa{
-    position:absolute;
-    top:20px;
-    left:0;
-    right:0;
-
-    padding:0 20px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    z-index:10;
+.perfil {
+    width: 190px;
+    height: 190px;
+    margin: 0 auto 25px;
+    border-radius: 18px;
+    border: 4px solid #ffd000;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
-.logo-capa{
-    width:145px;
-    height:145px;
+/* ================= LOGO DA OFICINA ================= */
 
-    object-fit:contain;
-    border-radius:50%;
-
-    filter:drop-shadow(0 0 12px rgba(255,255,255,.15));
+.perfil.oficina img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.45);
 }
 
-.logo-capa.terra{
-    width:170px;
-    height:170px;
+/* ================= LOGO DA TERRAPLANAGEM ================= */
+
+.perfil.terra img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.35);
 }
 
-/* ================================================= */
-/* ===================== TEXTO ===================== */
-/* ================================================= */
+/* ================= TÍTULOS ================= */
 
-.conteudo-capa{
-    position:relative;
-    z-index:5;
-
-    padding:130px 20px 190px;
-
-    max-width:850px;
+.titulo h2 {
+    color: #ffd000;
+    font-size: 28px;
+    margin: 10px 0;
 }
 
-.mini-titulo{
-    color:#ddd;
-    font-size:15px;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    margin-bottom:20px;
+.titulo p {
+    color: #ddd;
 }
 
-.conteudo-capa h1{
-    margin:0;
+/* ================= SERVIÇOS ================= */
 
-    font-size:clamp(45px,9vw,90px);
-    line-height:.9;
-
-    font-style:italic;
-    font-weight:900;
-    text-transform:uppercase;
+.servicos {
+    background: #1b1b1b;
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 25px;
+    margin: 25px 0;
 }
 
-.conteudo-capa h1 span{
-    color:#ffd000;
+.servicos h3 {
+    color: #ffd000;
+    margin-top: 0;
 }
 
-.frase-capa{
-    color:#ccc;
-    max-width:600px;
-    margin:28px auto;
-    line-height:1.6;
-    font-size:17px;
+.servicos p {
+    color: #ddd;
+    line-height: 1.6;
 }
 
-/* ================================================= */
-/* ===================== BOTÃO ===================== */
-/* ================================================= */
+/* ================= GALERIA ================= */
 
-.botao-entrar{
-    display:inline-flex;
-
-    align-items:center;
-    gap:12px;
-
-    padding:18px 38px;
-
-    background:#ffd000;
-    color:#000;
-
-    text-decoration:none;
-
-    font-size:20px;
-    font-weight:900;
-    font-style:italic;
-
-    border:3px solid #ffd000;
-
-    clip-path:polygon(
-        3% 0,
-        97% 0,
-        100% 20%,
-        97% 100%,
-        3% 100%,
-        0 80%,
-        3% 0
-    );
-
-    transition:.3s;
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 25px;
 }
 
-.botao-entrar:hover{
-    background:#fff;
-    transform:scale(1.06);
-    box-shadow:0 0 35px rgba(255,208,0,.45);
+.galeria img {
+    width: 100%;
+    height: 260px;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 12px;
+    border: 2px solid #333;
 }
 
-.seta{
-    font-size:27px;
+/* ================= BOTÕES ================= */
+
+.botoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.botao {
+    display: inline-block;
+    padding: 14px 20px;
+    min-width: 180px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+}
+
+.whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+.instagram {
+    background: #e1306c;
+    color: white;
+}
+
+/* ================= SEPARADOR ================= */
+
+.separador {
+    width: 90%;
+    max-width: 850px;
+    height: 4px;
+    margin: 0 auto;
+    background: #ffd000;
+}
+
+/* ================= RODAPÉ ================= */
+
+footer {
+    background: #000;
+    text-align: center;
+    padding: 30px 20px;
+    color: #aaa;
+}
+
+footer strong {
+    color: #ffd000;
 }
 
 /* ================================================= */
-/* ============ PERSONAGEM DA OFICINA ============== */
+/* ================= CAIXINHA SURPRESA ============ */
 /* ================================================= */
 
-.personagem-oficina{
-    position:absolute;
-
-    left:4%;
-    bottom:40px;
-
-    width:190px;
-
-    z-index:4;
-
-    animation:flutuarOficina 3s ease-in-out infinite;
+.surpresa-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.82);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+    animation: aparecerOverlay 0.4s ease;
 }
 
-@keyframes flutuarOficina{
+.surpresa-box {
+    width: 100%;
+    max-width: 390px;
+    background: #151515;
+    border: 3px solid #ffd000;
+    border-radius: 22px;
+    padding: 30px 22px;
+    text-align: center;
+    box-shadow: 0 0 35px rgba(255, 208, 0, 0.35);
+    animation: aparecerCaixa 0.5s ease;
+}
 
-    0%,100%{
-        transform:translateY(0) rotate(-2deg);
+.surpresa-box h2 {
+    color: #ffd000;
+    margin: 0 0 10px;
+    font-size: 26px;
+}
+
+.surpresa-box p {
+    color: #ddd;
+    line-height: 1.5;
+}
+
+/* CAIXA DE PRESENTE */
+
+.caixa-presente {
+    width: 145px;
+    height: 125px;
+    margin: 25px auto;
+    position: relative;
+    cursor: pointer;
+    animation: pulsar 1.5s infinite;
+}
+
+.caixa-corpo {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    width: 125px;
+    height: 90px;
+    background: #ffd000;
+    border-radius: 8px;
+    border: 4px solid #000;
+}
+
+.caixa-corpo::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 25px;
+    height: 100%;
+    background: #111;
+}
+
+.caixa-tampa {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 145px;
+    height: 35px;
+    background: #ffd000;
+    border-radius: 8px;
+    border: 4px solid #000;
+}
+
+.caixa-tampa::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -18px;
+    transform: translateX(-50%);
+    width: 25px;
+    height: 18px;
+    background: #111;
+    border-radius: 4px 4px 0 0;
+}
+
+.clique-caixa {
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* ================= RESULTADO ================= */
+
+.resultado {
+    display: none;
+}
+
+.resultado.ativo {
+    display: block;
+    animation: resultado 0.7s ease;
+}
+
+.desconto {
+    font-size: 55px;
+    font-weight: bold;
+    color: #ffd000;
+    margin: 15px 0;
+    text-shadow: 0 0 18px rgba(255, 208, 0, 0.5);
+}
+
+.validade {
+    font-size: 15px;
+    color: #ddd;
+}
+
+.botao-desconto {
+    display: block;
+    margin: 22px auto 0;
+    padding: 15px 20px;
+    border-radius: 10px;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    max-width: 300px;
+}
+
+.fechar-surpresa {
+    display: inline-block;
+    margin-top: 15px;
+    color: #aaa;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* ================= ANIMAÇÕES ================= */
+
+@keyframes aparecerOverlay {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes aparecerCaixa {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pulsar {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.07);
+    }
+}
+
+@keyframes resultado {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    70% {
+        transform: scale(1.08);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ================= CELULAR ================= */
+
+@media (max-width: 600px) {
+
+    .galeria {
+        grid-template-columns: 1fr;
     }
 
-    50%{
-        transform:translateY(-15px) rotate(2deg);
+    .galeria img {
+        height: 240px;
     }
 
-}
-
-/* ================================================= */
-/* ============ MINI RETROESCAVADEIRA ============== */
-/* ================================================= */
-
-.retro{
-    position:absolute;
-
-    right:3%;
-    bottom:35px;
-
-    width:250px;
-    height:190px;
-
-    z-index:4;
-
-    animation:retroMover 4s ease-in-out infinite;
-}
-
-@keyframes retroMover{
-
-    0%,100%{
-        transform:translateX(0);
+    .perfil {
+        width: 180px;
+        height: 180px;
     }
 
-    50%{
-        transform:translateX(-20px);
+    .botao {
+        width: 100%;
     }
 
-}
-
-.esteira{
-    position:absolute;
-
-    bottom:10px;
-    left:45px;
-
-    width:160px;
-    height:42px;
-
-    background:#171717;
-
-    border:6px solid #ffd000;
-
-    border-radius:30px;
-}
-
-.rodinha{
-    position:absolute;
-
-    width:22px;
-    height:22px;
-
-    background:#555;
-
-    border:3px solid #ffd000;
-
-    border-radius:50%;
-
-    top:5px;
-}
-
-.r1{left:10px}
-.r2{left:42px}
-.r3{left:75px}
-.r4{left:108px}
-
-.base-retro{
-    position:absolute;
-
-    bottom:45px;
-    left:72px;
-
-    width:115px;
-    height:45px;
-
-    background:#ffd000;
-
-    border:4px solid #111;
-
-    transform:skew(-10deg);
-}
-
-.cabine{
-    position:absolute;
-
-    bottom:90px;
-    left:110px;
-
-    width:85px;
-    height:70px;
-
-    background:#222;
-
-    border:5px solid #ffd000;
-
-    clip-path:polygon(
-        15% 0,
-        100% 0,
-        100% 100%,
-        0 100%,
-        0 20%
-    );
-}
-
-.janela{
-    position:absolute;
-    inset:12px;
-
-    background:#111;
-    border:2px solid #777;
-}
-
-.braco{
-    position:absolute;
-
-    width:105px;
-    height:18px;
-
-    background:#ffd000;
-    border:4px solid #111;
-
-    transform:rotate(-28deg);
-
-    bottom:128px;
-    left:145px;
-
-    transform-origin:left center;
-}
-
-.braco2{
-    position:absolute;
-
-    width:80px;
-    height:15px;
-
-    background:#ffd000;
-    border:4px solid #111;
-
-    transform:rotate(50deg);
-
-    bottom:158px;
-    left:220px;
-
-    transform-origin:left center;
-}
-
-.pa{
-    position:absolute;
-
-    width:50px;
-    height:45px;
-
-    background:#ffd000;
-
-    border:4px solid #111;
-
-    transform:rotate(25deg);
-
-    bottom:105px;
-    right:0;
-
-    clip-path:polygon(
-        0 0,
-        100% 20%,
-        80% 100%,
-        20% 100%
-    );
-}
-
-/* ================================================= */
-/* ============== ANIMAÇÃO AO ENTRAR =============== */
-/* ================================================= */
-
-.capa.saindo .personagem-oficina{
-    animation:oficinaSaindo 1s forwards;
-}
-
-.capa.saindo .retro{
-    animation:retroSaindo 1s forwards;
-}
-
-.capa.saindo .conteudo-capa{
-    animation:textoSaindo .8s forwards;
-}
-
-@keyframes oficinaSaindo{
-
-    to{
-        transform:translateX(-500px) rotate(-15deg);
-        opacity:0;
+    .surpresa-box {
+        max-width: 350px;
     }
 
-}
-
-@keyframes retroSaindo{
-
-    to{
-        transform:translateX(500px) rotate(8deg);
-        opacity:0;
+    .desconto {
+        font-size: 48px;
     }
-
-}
-
-@keyframes textoSaindo{
-
-    to{
-        transform:scale(.8);
-        opacity:0;
-    }
-
-}
-
-/* ================================================= */
-/* ===================== ESCOLHA =================== */
-/* ================================================= */
-
-.escolha{
-    background:#0b0b0b;
-    padding:75px 20px 60px;
-}
-
-.titulo-secao{
-    text-align:center;
-
-    font-size:clamp(32px,7vw,58px);
-
-    text-transform:uppercase;
-    font-style:italic;
-
-    margin:0 0 45px;
-}
-
-.titulo-secao span{
-    color:#ffd000;
-}
-
-.cards-escolha{
-    max-width:950px;
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:25px;
-}
-
-.card-escolha{
-    position:relative;
-
-    min-height:360px;
-
-    border-radius:18px;
-
-    overflow:hidden;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
-
-    padding:30px;
-
-    color:white;
-    text-decoration:none;
-
-    transition:.4s;
-
-    border:2px solid #333;
-}
-
-.card-escolha:hover{
-    transform:translateY(-10px) scale(1.02);
-}
-
-.card-oficina{
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,.95),
-            rgba(0,0,0,.15)
-        ),
-        url("394D06AD-030A-4C17-A293-BC982215E0FF.png")
-        center/cover;
-
-    border-color:#e60000;
-}
-
-.card-terra{
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,.95),
-            rgba(0,0,0,.15)
-        ),
-        url("d694a499-97f0-455a-bf3c-a2d0b08bc8d6.jpeg")
-        center/cover;
-
-    border-color:#ffd000;
-}
-
-.card-escolha h2{
-    font-size:38px;
-    margin:0 0 10px;
-
-    text-transform:uppercase;
-    font-style:italic;
-}
-
-.card-escolha p{
-    color:#ddd;
-    line-height:1.5;
-}
-
-.card-escolha .abrir{
-    width:max-content;
-
-    padding:12px 20px;
-
-    background:white;
-    color:#000;
-
-    border-radius:8px;
-
-    font-weight:bold;
-}
-
-/* ================================================= */
-/* ================== BENEFÍCIOS =================== */
-/* ================================================= */
-
-.beneficios{
-    max-width:950px;
-
-    margin:45px auto 0;
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:12px;
-}
-
-.beneficio{
-    background:#151515;
-
-    border:1px solid #333;
-
-    border-radius:12px;
-
-    padding:22px 12px;
-
-    text-align:center;
-
-    transition:.3s;
-}
-
-.beneficio:hover{
-    border-color:#ffd000;
-    transform:translateY(-5px);
-}
-
-.beneficio .icone{
-    font-size:30px;
-    margin-bottom:10px;
-}
-
-.beneficio h3{
-    font-size:14px;
-    margin:0;
-
-    text-transform:uppercase;
-}
-
-.beneficio p{
-    color:#999;
-    font-size:12px;
-    margin-bottom:0;
-}
-
-/* ================================================= */
-/* ===================== EMPRESA =================== */
-/* ================================================= */
-
-.empresa{
-    max-width:900px;
-
-    margin:auto;
-
-    padding:45px 20px;
-}
-
-.titulo{
-    text-align:center;
-}
-
-.perfil{
-    width:190px;
-    height:190px;
-
-    margin:0 auto 25px;
-
-    border-radius:18px;
-
-    border:4px solid #ffd000;
-
-    background:#000;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    overflow:hidden;
-}
-
-.perfil.oficina img{
-    width:100%;
-    height:100%;
-
-    display:block;
-
-    object-fit:cover;
-    object-position:center;
-
-    transform:scale(1.45);
-}
-
-.perfil.terra img{
-    width:100%;
-    height:100%;
-
-    display:block;
-
-    object-fit:cover;
-    object-position:center;
-
-    transform:scale(1.35);
-}
-
-.titulo h2{
-    color:#ffd000;
-    font-size:28px;
-
-    margin:10px 0;
-}
-
-.titulo p{
-    color:#ddd;
-}
-
-/* ================================================= */
-/* ===================== SERVIÇOS ================== */
-/* ================================================= */
-
-.servicos{
-    background:#1b1b1b;
-
-    border:1px solid #333;
-
-    border-radius:15px;
-
-    padding:25px;
-
-    margin:25px 0;
-
-    transition:.3s;
-}
-
-.servicos:hover{
-    border-color:#ffd000;
-    transform:translateY(-3px);
-}
-
-.servicos h3{
-    color:#ffd000;
-    margin-top:0;
-}
-
-.servicos p{
-    color:#ddd;
-    line-height:1.6;
-}
-
-/* ================================================= */
-/* ===================== GALERIA =================== */
-/* ================================================= */
-
-.galeria{
-    display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:15px;
-
-    margin-top:25px;
-}
-
-.galeria img{
-    width:100%;
-    height:260px;
-
-    display:block;
-
-    object-fit:cover;
-    object-position:center;
-
-    border-radius:12px;
-
-    border:2px solid #333;
-
-    transition:.35s;
-}
-
-.galeria img:hover{
-    transform:scale(1.03);
-    border-color:#ffd000;
-}
-
-/* ================================================= */
-/* ===================== BOTÕES ==================== */
-/* ================================================= */
-
-.botoes{
-    display:flex;
-
-    flex-wrap:wrap;
-
-    justify-content:center;
-
-    gap:12px;
-
-    margin-top:30px;
-}
-
-.botao{
-    display:inline-block;
-
-    padding:14px 20px;
-
-    min-width:180px;
-
-    border-radius:10px;
-
-    text-decoration:none;
-
-    font-weight:bold;
-
-    text-align:center;
-
-    transition:.3s;
-}
-
-.botao:hover{
-    transform:translateY(-3px);
-}
-
-.whatsapp{
-    background:#25D366;
-    color:white;
-}
-
-.instagram{
-    background:#e1306c;
-    color:white;
-}
-
-/* ================================================= */
-/* =================== SEPARADOR =================== */
-/* ================================================= */
-
-.separador{
-    width:90%;
-    max-width:850px;
-
-    height:4px;
-
-    margin:0 auto;
-
-    background:#ffd000;
-}
-
-/* ================================================= */
-/* ===================== RODAPÉ ==================== */
-/* ================================================= */
-
-footer{
-    background:#000;
-
-    text-align:center;
-
-    padding:30px 20px;
-
-    color:#aaa;
-}
-
-footer strong{
-    color:#ffd000;
-}
-
-/* ================================================= */
-/* ================ CAIXINHA SURPRESA ============== */
-/* ================================================= */
-
-.surpresa-overlay{
-
-    position:fixed;
-
-    inset:0;
-
-    background:rgba(0,0,0,.82);
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    z-index:9999;
-
-    padding:20px;
-
-    animation:aparecerOverlay .4s ease;
-}
-
-.surpresa-box{
-
-    width:100%;
-
-    max-width:390px;
-
-    background:#151515;
-
-    border:3px solid #ffd000;
-
-    border-radius:22px;
-
-    padding:30px 22px;
-
-    text-align:center;
-
-    box-shadow:
-        0 0 35px rgba(255,208,0,.35);
-
-    animation:aparecerCaixa .5s ease;
-}
-
-.surpresa-box h2{
-
-    color:#ffd000;
-
-    margin:0 0 10px;
-
-    font-size:26px;
-}
-
-.surpresa-box p{
-
-    color:#ddd;
-
-    line-height:1.5;
-}
-
-/* ================================================= */
-/* ================= PRESENTE ====================== */
-/* ================================================= */
-
-.caixa-presente{
-
-    width:145px;
-    height:125px;
-
-    margin:25px auto;
-
-    position:relative;
-
-    cursor:pointer;
-
-    animation:pulsar 1.5s infinite;
-}
-
-.caixa-corpo{
-
-    position:absolute;
-
-    bottom:0;
-    left:10px;
-
-    width:125px;
-    height:90px;
-
-    background:#ffd000;
-
-    border-radius:8px;
-
-    border:4px solid #000;
-}
-
-.caixa-corpo::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:50%;
-    top:0;
-
-    transform:translateX(-50%);
-
-    width:25px;
-    height:100%;
-
-    background:#111;
-}
-
-.caixa-tampa{
-
-    position:absolute;
-
-    top:15px;
-    left:0;
-
-    width:145px;
-    height:35px;
-
-    background:#ffd000;
-
-    border-radius:8px;
-
-    border:4px solid #000;
-}
-
-.caixa-tampa::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:50%;
-    top:-18px;
-
-    transform:translateX(-50%);
-
-    width:25px;
-    height:18px;
-
-    background:#111;
-
-    border-radius:4px 4px 0 0;
-}
-
-.clique-caixa{
-
-    color:white;
-
-    font-weight:bold;
-
-    margin-top:10px;
-}
-
-/* ================================================= */
-/* ================= RESULTADO ===================== */
-/* ================================================= */
-
-.resultado{
-    display:none;
-}
-
-.resultado.ativo{
-
-    display:block;
-
-    animation:resultado .7s ease;
-}
-
-.desconto{
-
-    font-size:55px;
-
-    font-weight:bold;
-
-    color:#ffd000;
-
-    margin:15px 0;
-
-    text-shadow:
-        0 0 18px rgba(255,208,0,.5);
-}
-
-.validade{
-
-    font-size:15px;
-
-    color:#ddd;
-}
-
-.botao-desconto{
-
-    display:block;
-
-    margin:22px auto 0;
-
-    padding:15px 20px;
-
-    border-radius:10px;
-
-    background:#25D366;
-
-    color:white;
-
-    text-decoration:none;
-
-    font-weight:bold;
-
-    max-width:300px;
-}
-
-.fechar-surpresa{
-
-    display:inline-block;
-
-    margin-top:15px;
-
-    color:#aaa;
-
-    cursor:pointer;
-
-    font-size:14px;
-}
-
-/* ================================================= */
-/* ================= ANIMAÇÕES ===================== */
-/* ================================================= */
-
-@keyframes aparecerOverlay{
-
-    from{
-        opacity:0;
-    }
-
-    to{
-        opacity:1;
-    }
-
-}
-
-@keyframes aparecerCaixa{
-
-    from{
-        transform:scale(.7);
-        opacity:0;
-    }
-
-    to{
-        transform:scale(1);
-        opacity:1;
-    }
-
-}
-
-@keyframes pulsar{
-
-    0%,100%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.07);
-    }
-
-}
-
-@keyframes resultado{
-
-    0%{
-        transform:scale(.5);
-        opacity:0;
-    }
-
-    70%{
-        transform:scale(1.08);
-    }
-
-    100%{
-        transform:scale(1);
-        opacity:1;
-    }
-
-}
-
-/* ================================================= */
-/* ===================== CELULAR =================== */
-/* ================================================= */
-
-@media(max-width:700px){
-
-    .logos-capa{
-        padding:10px;
-    }
-
-    .logo-capa{
-        width:95px;
-        height:95px;
-    }
-
-    .logo-capa.terra{
-        width:110px;
-        height:110px;
-    }
-
-    .conteudo-capa{
-        padding-top:150px;
-        padding-bottom:170px;
-    }
-
-    .mini-titulo{
-        font-size:11px;
-        letter-spacing:2px;
-    }
-
-    .frase-capa{
-        font-size:14px;
-    }
-
-    .personagem-oficina{
-
-        width:100px;
-
-        left:-5px;
-
-        bottom:30px;
-    }
-
-    .retro{
-
-        width:145px;
-        height:115px;
-
-        right:-10px;
-
-        bottom:25px;
-    }
-
-    .esteira{
-
-        width:100px;
-        height:28px;
-
-        left:25px;
-    }
-
-    .base-retro{
-
-        width:75px;
-        height:32px;
-
-        left:45px;
-
-        bottom:35px;
-    }
-
-    .cabine{
-
-        width:55px;
-        height:48px;
-
-        left:72px;
-
-        bottom:62px;
-    }
-
-    .braco{
-
-        width:65px;
-        height:12px;
-
-        left:95px;
-
-        bottom:88px;
-    }
-
-    .braco2{
-
-        width:50px;
-        height:10px;
-
-        left:135px;
-
-        bottom:105px;
-    }
-
-    .pa{
-
-        width:35px;
-        height:30px;
-
-        bottom:72px;
-    }
-
-    .cards-escolha{
-        grid-template-columns:1fr;
-    }
-
-    .card-escolha{
-        min-height:300px;
-    }
-
-    .beneficios{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .galeria{
-        grid-template-columns:1fr;
-    }
-
-    .galeria img{
-        height:240px;
-    }
-
-    .perfil{
-        width:180px;
-        height:180px;
-    }
-
-    .botao{
-        width:100%;
-    }
-
-    .surpresa-box{
-        max-width:350px;
-    }
-
-    .desconto{
-        font-size:48px;
-    }
-
 }
 
 </style>
@@ -1279,353 +413,99 @@ footer strong{
 
 <body>
 
-
 <!-- ================================================= -->
-<!-- ====================== CAPA ===================== -->
-<!-- ================================================= -->
-
-<section class="capa" id="capa">
-
-    <div class="luz-vermelha"></div>
-
-    <div class="luz-amarela"></div>
-
-
-    <!-- LOGOS -->
-
-    <div class="logos-capa">
-
-        <img
-            class="logo-capa"
-            src="IMG_4675.png"
-            alt="Dioni Moto Racing"
-        >
-
-        <img
-            class="logo-capa terra"
-            src="IMG_4674.png"
-            alt="Dioni Terraplanagem"
-        >
-
-    </div>
-
-
-    <!-- PERSONAGEM OFICINA -->
-
-    <div class="personagem-oficina">
-
-        <svg viewBox="0 0 200 230">
-
-            <rect
-                x="65"
-                y="105"
-                width="70"
-                height="80"
-                rx="20"
-                fill="#111"
-                stroke="#e60000"
-                stroke-width="5"
-            />
-
-            <rect
-                x="45"
-                y="30"
-                width="110"
-                height="90"
-                rx="25"
-                fill="#aaa"
-                stroke="#eee"
-                stroke-width="5"
-            />
-
-            <rect
-                x="55"
-                y="25"
-                width="90"
-                height="18"
-                rx="8"
-                fill="#777"
-            />
-
-            <circle
-                cx="78"
-                cy="75"
-                r="8"
-                fill="#111"
-            />
-
-            <circle
-                cx="122"
-                cy="75"
-                r="8"
-                fill="#111"
-            />
-
-            <path
-                d="M75 92 Q100 110 125 92"
-                fill="none"
-                stroke="#111"
-                stroke-width="6"
-            />
-
-            <rect
-                x="25"
-                y="125"
-                width="10"
-                height="65"
-                rx="5"
-                fill="#ddd"
-                transform="rotate(-25 25 125)"
-            />
-
-            <circle
-                cx="23"
-                cy="122"
-                r="12"
-                fill="none"
-                stroke="#e60000"
-                stroke-width="7"
-            />
-
-            <path
-                d="M155 125 L180 165"
-                stroke="#e60000"
-                stroke-width="10"
-            />
-
-        </svg>
-
-    </div>
-
-
-    <!-- MINI RETROESCAVADEIRA -->
-
-    <div class="retro">
-
-        <div class="esteira">
-
-            <div class="rodinha r1"></div>
-            <div class="rodinha r2"></div>
-            <div class="rodinha r3"></div>
-            <div class="rodinha r4"></div>
-
-        </div>
-
-        <div class="base-retro"></div>
-
-        <div class="cabine">
-            <div class="janela"></div>
-        </div>
-
-        <div class="braco"></div>
-
-        <div class="braco2"></div>
-
-        <div class="pa"></div>
-
-    </div>
-
-
-    <!-- TEXTO -->
-
-    <div class="conteudo-capa">
-
-        <div class="mini-titulo">
-            Qualidade • Confiança • Experiência
-        </div>
-
-        <h1>
-            DUAS ÁREAS.<br>
-            <span>UM SÓ NOME.</span><br>
-            DIONI.
-        </h1>
-
-        <p class="frase-capa">
-            Da sua moto ao seu terreno.
-            Soluções, experiência e atendimento
-            para fazer acontecer.
-        </p>
-
-        <a
-            href="#escolha"
-            class="botao-entrar"
-            id="entrarSite"
-        >
-            ENTRAR NO SITE
-            <span class="seta">→</span>
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- ================================================= -->
-<!-- ===================== ESCOLHA =================== -->
+<!-- =============== CAIXINHA SURPRESA =============== -->
 <!-- ================================================= -->
 
-<section
-    class="escolha"
-    id="escolha"
->
+<div class="surpresa-overlay" id="surpresaOverlay">
 
-    <h2 class="titulo-secao">
-        O QUE VOCÊ <span>PROCURA?</span>
-    </h2>
+    <div class="surpresa-box">
 
+        <div id="conviteSurpresa">
 
-    <div class="cards-escolha">
-
-
-        <!-- OFICINA -->
-
-        <a
-            href="#oficina"
-            class="card-escolha card-oficina"
-        >
-
-            <h2>
-                🏍️ Oficina
-            </h2>
+            <h2>🎁 TEM UMA SURPRESA PARA VOCÊ!</h2>
 
             <p>
-                Manutenção, revisão, reparos
-                e preparação para sua moto.
+                Tem um desconto escondido aqui...
             </p>
-
-            <span class="abrir">
-                CONHECER →
-            </span>
-
-        </a>
-
-
-        <!-- TERRAPLANAGEM -->
-
-        <a
-            href="#terra"
-            class="card-escolha card-terra"
-        >
-
-            <h2>
-                🚜 Terraplanagem
-            </h2>
 
             <p>
-                Escavações, nivelamento,
-                abertura de valas e serviços
-                com máquinas.
+                <strong>Clique na caixinha para descobrir! 👇</strong>
             </p>
 
-            <span class="abrir">
-                CONHECER →
-            </span>
+            <div class="caixa-presente" id="caixaPresente">
 
-        </a>
+                <div class="caixa-tampa"></div>
 
-    </div>
+                <div class="caixa-corpo"></div>
 
-
-    <!-- BENEFÍCIOS -->
-
-    <div class="beneficios">
-
-
-        <div class="beneficio">
-
-            <div class="icone">
-                🔧
             </div>
 
-            <h3>
-                Qualidade
-            </h3>
-
-            <p>
-                Serviço feito com cuidado.
-            </p>
+            <div class="clique-caixa">
+                🎁 Clique na caixa!
+            </div>
 
         </div>
 
+        <!-- RESULTADO DO DESCONTO -->
 
-        <div class="beneficio">
+        <div class="resultado" id="resultado">
 
-            <div class="icone">
-                🛡️
-            </div>
-
-            <h3>
-                Confiança
-            </h3>
+            <h2>🎉 PARABÉNS!</h2>
 
             <p>
-                Atendimento próximo.
+                Você desbloqueou um desconto especial:
             </p>
 
-        </div>
-
-
-        <div class="beneficio">
-
-            <div class="icone">
-                🤝
+            <div class="desconto" id="valorDesconto">
+                10% OFF
             </div>
 
-            <h3>
-                Atendimento
-            </h3>
-
-            <p>
-                Contato direto.
+            <p class="validade">
+                🔧 Válido para <strong>serviços completos acima de R$ 200</strong>.
             </p>
 
-        </div>
+            <a
+                class="botao-desconto"
+                id="botaoWhatsAppDesconto"
+                href="#"
+                target="_blank"
+            >
+                📲 QUERO USAR MEU DESCONTO
+            </a>
 
-
-        <div class="beneficio">
-
-            <div class="icone">
-                ⚙️
+            <div
+                class="fechar-surpresa"
+                id="fecharSurpresa"
+            >
+                Continuar navegando no site
             </div>
-
-            <h3>
-                Experiência
-            </h3>
-
-            <p>
-                Soluções para cada serviço.
-            </p>
 
         </div>
 
     </div>
 
-</section>
+</div>
 
+<!-- ================= OFICINA ================= -->
 
-<!-- ================================================= -->
-<!-- ====================== OFICINA ================== -->
-<!-- ================================================= -->
+<header>
+    <h1>Dioni Motos Racing</h1>
+    <p>Oficina • Manutenção • Preparação</p>
+</header>
 
-<section
-    class="empresa"
-    id="oficina"
->
+<section class="empresa">
 
     <div class="titulo">
 
         <div class="perfil oficina">
-
             <img
                 src="IMG_4675.png"
                 alt="Dioni Motos Racing"
             >
-
         </div>
 
-        <h2>
-            Dioni Motos Racing
-        </h2>
+        <h2>Dioni Motos Racing</h2>
 
         <p>
             Oficina especializada em motocicletas
@@ -1633,21 +513,16 @@ footer strong{
 
     </div>
 
-
     <div class="servicos">
 
-        <h3>
-            🏍️ Nossos serviços
-        </h3>
+        <h3>🏍️ Nossos serviços</h3>
 
         <p>
             Todos os tipos de serviços na oficina,
-            manutenção, reparos e preparação
-            de motocicletas.
+            manutenção, reparos e preparação de motocicletas.
         </p>
 
     </div>
-
 
     <div class="galeria">
 
@@ -1663,7 +538,6 @@ footer strong{
 
     </div>
 
-
     <div class="botoes">
 
         <a
@@ -1673,7 +547,6 @@ footer strong{
         >
             📲 WhatsApp da Oficina
         </a>
-
 
         <a
             class="botao instagram"
@@ -1687,18 +560,11 @@ footer strong{
 
 </section>
 
-
 <div class="separador"></div>
 
-
-<!-- ================================================= -->
 <!-- ================= TERRAPLANAGEM ================= -->
-<!-- ================================================= -->
 
-<section
-    class="empresa"
-    id="terra"
->
+<section class="empresa">
 
     <div class="titulo">
 
@@ -1711,9 +577,7 @@ footer strong{
 
         </div>
 
-        <h2>
-            Dioni Terraplanagem
-        </h2>
+        <h2>Dioni Terraplanagem</h2>
 
         <p>
             Terraplanagem • Escavações • Máquinas
@@ -1721,21 +585,16 @@ footer strong{
 
     </div>
 
-
     <div class="servicos">
 
-        <h3>
-            🚜 Nossos serviços
-        </h3>
+        <h3>🚜 Nossos serviços</h3>
 
         <p>
-            Todos os tipos de serviços de
-            terraplanagem, escavações e trabalhos
-            com máquinas.
+            Todos os tipos de serviços de terraplanagem,
+            escavações e trabalhos com máquinas.
         </p>
 
     </div>
-
 
     <div class="galeria">
 
@@ -1751,7 +610,6 @@ footer strong{
 
     </div>
 
-
     <div class="botoes">
 
         <a
@@ -1761,7 +619,6 @@ footer strong{
         >
             📲 WhatsApp Terraplanagem
         </a>
-
 
         <a
             class="botao instagram"
@@ -1775,22 +632,13 @@ footer strong{
 
 </section>
 
-
-<!-- ================================================= -->
-<!-- ======================= RODAPÉ ================== -->
-<!-- ================================================= -->
-
 <footer>
 
-    <strong>
-        Dioni Motos Racing
-    </strong>
+    <strong>Dioni Motos Racing</strong>
 
     <br>
 
-    <strong>
-        Dioni Terraplanagem
-    </strong>
+    <strong>Dioni Terraplanagem</strong>
 
     <p>
         Três Coroas - RS
@@ -1798,231 +646,63 @@ footer strong{
 
 </footer>
 
-
 <!-- ================================================= -->
-<!-- ================= CAIXINHA SURPRESA ============= -->
-<!-- ================================================= -->
-
-<div
-    class="surpresa-overlay"
-    id="surpresaOverlay"
->
-
-    <div class="surpresa-box">
-
-
-        <!-- CONVITE -->
-
-        <div id="conviteSurpresa">
-
-            <h2>
-                🎁 TEM UMA SURPRESA PARA VOCÊ!
-            </h2>
-
-
-            <p>
-                Tem um desconto escondido aqui...
-            </p>
-
-
-            <p>
-                <strong>
-                    Clique na caixinha para descobrir! 👇
-                </strong>
-            </p>
-
-
-            <div
-                class="caixa-presente"
-                id="caixaPresente"
-            >
-
-                <div class="caixa-tampa"></div>
-
-                <div class="caixa-corpo"></div>
-
-            </div>
-
-
-            <div class="clique-caixa">
-                🎁 Clique na caixa!
-            </div>
-
-        </div>
-
-
-        <!-- RESULTADO -->
-
-        <div
-            class="resultado"
-            id="resultado"
-        >
-
-            <h2>
-                🎉 PARABÉNS!
-            </h2>
-
-
-            <p>
-                Você desbloqueou um desconto especial:
-            </p>
-
-
-            <div
-                class="desconto"
-                id="valorDesconto"
-            >
-                10% OFF
-            </div>
-
-
-            <p class="validade">
-
-                🔧 Válido para
-                <strong>
-                    serviços completos acima de R$ 200
-                </strong>.
-
-            </p>
-
-
-            <a
-                class="botao-desconto"
-                id="botaoWhatsAppDesconto"
-                href="#"
-                target="_blank"
-            >
-                📲 QUERO USAR MEU DESCONTO
-            </a>
-
-
-            <div
-                class="fechar-surpresa"
-                id="fecharSurpresa"
-            >
-                Continuar navegando no site
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- ================================================= -->
-<!-- ===================== JAVASCRIPT ================= -->
+<!-- ================= JAVASCRIPT ==================== -->
 <!-- ================================================= -->
 
 <script>
 
-/* ================================================= */
-/* ================ ANIMAÇÃO DA CAPA =============== */
-/* ================================================= */
-
-const entrarSite =
-    document.getElementById("entrarSite");
-
-const capa =
-    document.getElementById("capa");
-
-
-entrarSite.addEventListener("click", function(){
-
-    capa.classList.add("saindo");
-
-});
-
-
-/* ================================================= */
-/* ============== CAIXINHA DE DESCONTO ============= */
-/* ================================================= */
-
-const caixaPresente =
-    document.getElementById("caixaPresente");
-
-const conviteSurpresa =
-    document.getElementById("conviteSurpresa");
-
-const resultado =
-    document.getElementById("resultado");
-
-const valorDesconto =
-    document.getElementById("valorDesconto");
-
-const botaoWhatsAppDesconto =
-    document.getElementById("botaoWhatsAppDesconto");
-
-const fecharSurpresa =
-    document.getElementById("fecharSurpresa");
-
-const surpresaOverlay =
-    document.getElementById("surpresaOverlay");
-
+const caixaPresente = document.getElementById("caixaPresente");
+const conviteSurpresa = document.getElementById("conviteSurpresa");
+const resultado = document.getElementById("resultado");
+const valorDesconto = document.getElementById("valorDesconto");
+const botaoWhatsAppDesconto = document.getElementById("botaoWhatsAppDesconto");
+const fecharSurpresa = document.getElementById("fecharSurpresa");
+const surpresaOverlay = document.getElementById("surpresaOverlay");
 
 /*
-   DESCONTOS POSSÍVEIS
+   DESCONTOS POSSÍVEIS:
+   10%, 15% ou 20%
 */
 
-const descontos = [
-    10,
-    15,
-    20
-];
+const descontos = [10, 15, 20];
 
+caixaPresente.addEventListener("click", function() {
 
-caixaPresente.addEventListener("click", function(){
-
+    /* Escolhe aleatoriamente um dos três descontos */
     const desconto =
-        descontos[
-            Math.floor(
-                Math.random() * descontos.length
-            )
-        ];
+        descontos[Math.floor(Math.random() * descontos.length)];
 
+    valorDesconto.textContent = desconto + "% OFF";
 
-    valorDesconto.textContent =
-        desconto + "% OFF";
-
+    /*
+       Mensagem que vai abrir no WhatsApp
+       já informando o desconto recebido.
+    */
 
     const mensagem =
         "Olá! Vim pelo site da Dioni Motos Racing e abri a caixinha surpresa. " +
-        "Ganhei " +
-        desconto +
-        "% de desconto para serviço completo acima de R$ 200. " +
+        "Ganhei " + desconto + "% de desconto para serviço completo acima de R$ 200. " +
         "Gostaria de fazer um orçamento!";
-
 
     botaoWhatsAppDesconto.href =
         "https://wa.me/5551998230264?text=" +
         encodeURIComponent(mensagem);
 
-
-    conviteSurpresa.style.display =
-        "none";
-
+    /* Esconde a caixa e mostra o prêmio */
+    conviteSurpresa.style.display = "none";
 
     resultado.classList.add("ativo");
 
 });
 
+fecharSurpresa.addEventListener("click", function() {
 
-/* ================================================= */
-/* ================= FECHAR CAIXINHA =============== */
-/* ================================================= */
+    surpresaOverlay.style.display = "none";
 
-fecharSurpresa.addEventListener(
-    "click",
-    function(){
-
-        surpresaOverlay.style.display =
-            "none";
-
-    }
-);
+});
 
 </script>
-
 
 </body>
 </html>
