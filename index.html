@@ -18,189 +18,464 @@ html {
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #111;
-    color: white;
+    background: #0d0d0d;
+    color: #fff;
+    overflow-x: hidden;
 }
 
-/* TOPO */
+/* =========================
+   FUNDO
+========================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255,208,0,.10), transparent 25%),
+        radial-gradient(circle at 85% 70%, rgba(255,0,0,.07), transparent 25%);
+}
+
+/* =========================
+   CABEÇALHO
+========================= */
+
 header {
-    background: linear-gradient(135deg, #111, #1c1c1c);
+    min-height: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     padding: 35px 20px;
-    border-bottom: 4px solid #ffd000;
+
+    background:
+        linear-gradient(135deg, #111 0%, #191919 50%, #0b0b0b 100%);
+
+    border-bottom: 3px solid #ffd000;
+
+    animation: aparecer .8s ease;
 }
 
 header h1 {
     margin: 0;
-    font-size: 28px;
+    font-size: clamp(30px, 8vw, 55px);
+    font-weight: 900;
+    letter-spacing: -2px;
     color: #ffd000;
+    text-shadow: 0 0 25px rgba(255,208,0,.18);
 }
 
 header p {
-    margin-top: 8px;
+    margin: 12px 0 0;
     color: #ddd;
+    font-size: 16px;
 }
 
-/* CONTEÚDO */
+.linha {
+    width: 80px;
+    height: 4px;
+    margin-top: 18px;
+    border-radius: 20px;
+    background: #ffd000;
+    animation: crescer 1s ease;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
 .container {
-    width: 92%;
-    max-width: 900px;
+    width: min(92%, 1000px);
     margin: auto;
 }
 
-/* SEÇÕES */
+/* =========================
+   SEÇÕES
+========================= */
+
 section {
-    background: #1b1b1b;
-    margin: 25px 0;
-    padding: 22px;
-    border-radius: 18px;
-    border: 1px solid #333;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+    margin: 30px 0;
+    padding: 25px;
+
+    background: rgba(25,25,25,.94);
+    border: 1px solid #303030;
+    border-radius: 20px;
+
+    box-shadow: 0 15px 45px rgba(0,0,0,.35);
+
+    opacity: 0;
+    transform: translateY(35px);
+    animation: subir .8s ease forwards;
 }
 
-.section-title {
+section:nth-child(2) {
+    animation-delay: .15s;
+}
+
+section:nth-child(3) {
+    animation-delay: .3s;
+}
+
+.titulo {
     text-align: center;
     color: #ffd000;
-    font-size: 25px;
-    margin-bottom: 18px;
+    font-size: 27px;
+    margin: 0 0 22px;
 }
 
-/* LOGOS / FOTOS PRINCIPAIS */
-.profile-photo {
-    width: 100%;
-    max-width: 420px;
-    height: 300px;
-    margin: 0 auto 20px;
+.subtitulo {
+    text-align: center;
+    color: #aaa;
+    margin-top: -12px;
+    margin-bottom: 22px;
+}
+
+/* =========================
+   FOTO PRINCIPAL
+========================= */
+
+.logo {
+    width: min(100%, 360px);
+    aspect-ratio: 1 / 1;
+
     display: block;
+    margin: 0 auto 22px;
 
     object-fit: cover;
     object-position: center;
 
     border-radius: 18px;
     border: 2px solid #ffd000;
-    background: #222;
+
+    cursor: pointer;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        filter .35s ease;
 }
 
-/* TEXTO */
-.description {
+.logo:hover {
+    transform: scale(1.025) rotate(.5deg);
+    box-shadow: 0 0 30px rgba(255,208,0,.18);
+}
+
+/* =========================
+   DESCRIÇÃO
+========================= */
+
+.descricao {
     text-align: center;
-    color: #ddd;
-    line-height: 1.6;
-    font-size: 16px;
+    color: #d0d0d0;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto 25px;
 }
 
-/* GALERIA */
-.gallery {
+/* =========================
+   SERVIÇOS
+========================= */
+
+.servicos {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 12px;
-    margin-top: 20px;
+    margin-top: 22px;
 }
 
-.gallery img {
+.servico {
+    min-height: 120px;
+    padding: 18px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background: #151515;
+    border: 1px solid #333;
+    border-radius: 14px;
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        background .3s ease;
+}
+
+.servico:hover {
+    transform: translateY(-7px);
+    border-color: #ffd000;
+    background: #202020;
+}
+
+.servico .icone {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.servico strong {
+    color: #fff;
+}
+
+/* =========================
+   GALERIA QUADRADA
+========================= */
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.galeria img {
     width: 100%;
-    height: 220px;
+    aspect-ratio: 1 / 1;
 
     object-fit: cover;
     object-position: center;
 
     border-radius: 14px;
     border: 1px solid #333;
-    background: #222;
 
-    transition: transform 0.25s ease;
+    cursor: pointer;
+
+    transition:
+        transform .35s ease,
+        filter .35s ease,
+        border-color .35s ease;
 }
 
-.gallery img:hover {
-    transform: scale(1.025);
+.galeria img:hover {
+    transform: translateY(-5px) scale(1.025);
+    filter: brightness(1.12);
+    border-color: #ffd000;
 }
 
-/* BOTÕES */
-.buttons {
-    display: flex;
-    flex-direction: column;
+/* =========================
+   BOTÕES
+========================= */
+
+.botoes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 12px;
-    margin-top: 22px;
+    margin-top: 25px;
 }
 
-.button {
-    display: block;
-    text-decoration: none;
-    text-align: center;
+.botao {
+    min-height: 52px;
 
-    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px;
+
     border-radius: 12px;
 
     background: #ffd000;
     color: #111;
 
-    font-weight: bold;
-    font-size: 16px;
+    text-decoration: none;
+    font-weight: 800;
 
-    transition: 0.25s;
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
 }
 
-.button:hover {
-    transform: translateY(-2px);
+.botao:hover {
+    transform: translateY(-4px);
     background: #ffe45c;
+    box-shadow: 0 10px 25px rgba(255,208,0,.15);
 }
 
-.button.dark {
-    background: #292929;
-    color: white;
+.botao.dark {
+    background: #252525;
+    color: #fff;
     border: 1px solid #444;
 }
 
-.button.dark:hover {
-    background: #333;
+.botao.dark:hover {
+    background: #303030;
+    border-color: #ffd000;
 }
 
-/* LOCALIZAÇÃO */
-.location {
+/* =========================
+   LOCALIZAÇÃO
+========================= */
+
+.localizacao {
     text-align: center;
     color: #bbb;
-    line-height: 1.6;
-    margin-top: 18px;
+    line-height: 1.8;
 }
 
-/* RODAPÉ */
+.localizacao strong {
+    color: #ffd000;
+}
+
+/* =========================
+   RODAPÉ
+========================= */
+
 footer {
+    padding: 35px 20px;
     text-align: center;
-    padding: 30px 15px;
     color: #777;
     font-size: 13px;
 }
 
-/* CELULAR */
-@media (max-width: 600px) {
+/* =========================
+   MODAL DAS FOTOS
+========================= */
 
-    header {
-        padding: 28px 15px;
+.modal {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0,0,0,.94);
+
+    z-index: 9999;
+}
+
+.modal.aberto {
+    display: flex;
+    animation: aparecer .25s ease;
+}
+
+.modal img {
+    max-width: 94vw;
+    max-height: 88vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 14px;
+    border: 2px solid #ffd000;
+
+    animation: zoom .3s ease;
+}
+
+.fechar {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+
+    width: 48px;
+    height: 48px;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: #ffd000;
+    color: #111;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    z-index: 10000;
+}
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
     }
 
-    header h1 {
-        font-size: 24px;
+    to {
+        opacity: 1;
     }
+}
+
+@keyframes subir {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes crescer {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+
+    to {
+        width: 80px;
+        opacity: 1;
+    }
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 700px) {
 
     section {
-        padding: 17px;
-        margin: 18px 0;
+        padding: 18px;
+        margin: 20px 0;
     }
 
-    .section-title {
-        font-size: 22px;
+    .servicos {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .profile-photo {
-        height: 260px;
+    .galeria {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .gallery {
+    .botoes {
         grid-template-columns: 1fr;
     }
+}
 
-    .gallery img {
-        height: 240px;
+@media (max-width: 420px) {
+
+    .servicos {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .galeria {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
     }
 }
 </style>
@@ -209,138 +484,380 @@ footer {
 <body>
 
 <header>
+
     <h1>Dioni Motos Racing</h1>
-    <p>Oficina • Manutenção • Serviços em motos</p>
+
+    <p>Oficina • Manutenção • Serviços</p>
+
+    <div class="linha"></div>
+
 </header>
+
 
 <div class="container">
 
-    <!-- OFICINA -->
-    <section>
 
-        <h2 class="section-title">🏍️ Dioni Motos Racing</h2>
+<!-- ==================================
+     DIONI MOTOS
+================================== -->
 
-        <!-- FOTO PRINCIPAL DA OFICINA -->
+<section>
+
+    <h2 class="titulo">🏍️ Dioni Motos Racing</h2>
+
+    <p class="subtitulo">
+        Cuidado, manutenção e serviço para sua moto.
+    </p>
+
+
+    <!-- LOGO ORIGINAL DA OFICINA -->
+    <img
+        class="logo foto-interativa"
+        src="imagens/IMG_4138.jpeg"
+        alt="Dioni Motos Racing"
+    >
+
+
+    <p class="descricao">
+        Todos os tipos de serviços na oficina,
+        com atenção em cada detalhe e cuidado com sua moto.
+    </p>
+
+
+    <div class="servicos">
+
+        <div class="servico">
+            <span class="icone">🔧</span>
+            <strong>Manutenção</strong>
+        </div>
+
+        <div class="servico">
+            <span class="icone">🏍️</span>
+            <strong>Serviços em motos</strong>
+        </div>
+
+        <div class="servico">
+            <span class="icone">⚙️</span>
+            <strong>Reparos</strong>
+        </div>
+
+        <div class="servico">
+            <span class="icone">🛠️</span>
+            <strong>Revisões</strong>
+        </div>
+
+        <div class="servico">
+            <span class="icone">🔩</span>
+            <strong>Peças e ajustes</strong>
+        </div>
+
+        <div class="servico">
+            <span class="icone">✅</span>
+            <strong>Serviço completo</strong>
+        </div>
+
+    </div>
+
+
+    <div class="galeria">
+
         <img
-            src="IMG_4675.jpeg"
-            alt="Dioni Motos Racing"
-            class="profile-photo"
+            class="foto-interativa"
+            src="imagens/d694a499-97f0-455a-bf3c-a2d0b08bc8d6.jpeg"
+            alt="Serviço realizado na oficina"
         >
 
-        <p class="description">
-            Todos os tipos de serviços para sua moto,
-            com cuidado, experiência e atenção em cada detalhe.
-        </p>
-
-        <div class="gallery">
-
-            <img
-                src="IMG_4138.jpeg"
-                alt="Moto em manutenção"
-            >
-
-            <img
-                src="3fb33d21-fadf-497d-94fd-03dae75690ff.jpeg"
-                alt="Manutenção de moto"
-            >
-
-        </div>
-
-        <div class="buttons">
-
-            <a
-                class="button"
-                href="https://www.instagram.com/dionimotosracing"
-                target="_blank"
-            >
-                📸 Instagram
-            </a>
-
-            <a
-                class="button dark"
-                href="https://wa.me/"
-                target="_blank"
-            >
-                💬 WhatsApp
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- TERRAPLANAGEM -->
-    <section>
-
-        <h2 class="section-title">🚜 Dioni Terraplanagem</h2>
-
-        <!-- FOTO PRINCIPAL DA TERRAPLANAGEM -->
         <img
-            src="IMG_4674.png"
-            alt="Dioni Terraplanagem"
-            class="profile-photo"
+            class="foto-interativa"
+            src="imagens/9b739d7f-a744-4a61-8359-0c3ecb43419d.jpeg"
+            alt="Serviço em motocicleta"
         >
 
-        <p class="description">
-            Serviços de terraplanagem, escavação e preparação
-            de terrenos para diferentes tipos de projetos.
-        </p>
+    </div>
 
-        <div class="gallery">
 
-            <img
-                src="IMG_4117.jpeg"
-                alt="Escavação de vala"
-            >
+    <div class="botoes">
 
-            <img
-                src="d694a499-97f0-455a-bf3c-a2d0b08bc8d6.jpeg"
-                alt="Mini escavadeira trabalhando"
-            >
+        <a
+            class="botao"
+            href="https://www.instagram.com/dionimotosracing"
+            target="_blank"
+        >
+            📸 Instagram
+        </a>
 
+        <a
+            class="botao dark"
+            href="https://wa.me/5551998230264"
+            target="_blank"
+        >
+            💬 WhatsApp
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================
+     DIONI TERRAPLANAGEM
+================================== -->
+
+<section>
+
+    <h2 class="titulo">🚜 Dioni Terraplanagem</h2>
+
+    <p class="subtitulo">
+        Serviços de terraplanagem e preparação de terrenos.
+    </p>
+
+
+    <!-- LOGO ORIGINAL DA TERRAPLANAGEM -->
+    <img
+        class="logo foto-interativa"
+        src="imagens/944ea4ae-a78d-4899-a3d6-9791c3df16d3.jpeg"
+        alt="Dioni Terraplanagem"
+    >
+
+
+    <p class="descricao">
+        Todos os tipos de serviços de terraplanagem,
+        escavação e preparação de terrenos.
+    </p>
+
+
+    <div class="servicos">
+
+        <div class="servico">
+            <span class="icone">🚜</span>
+            <strong>Terraplanagem</strong>
         </div>
 
-        <div class="buttons">
-
-            <a
-                class="button"
-                href="https://www.instagram.com/dioniterraplanagem_"
-                target="_blank"
-            >
-                📸 Instagram
-            </a>
-
-            <a
-                class="button dark"
-                href="https://wa.me/"
-                target="_blank"
-            >
-                💬 WhatsApp
-            </a>
-
+        <div class="servico">
+            <span class="icone">⛏️</span>
+            <strong>Escavação</strong>
         </div>
 
-    </section>
+        <div class="servico">
+            <span class="icone">🏗️</span>
+            <strong>Preparação</strong>
+        </div>
+
+        <div class="servico">
+            <span class="icone">📐</span>
+            <strong>Nivelamento</strong>
+        </div>
+
+        <div class="servico">
+            <span class="icone">🚧</span>
+            <strong>Limpeza de terreno</strong>
+        </div>
+
+    </div>
 
 
-    <!-- LOCALIZAÇÃO -->
-    <section>
+    <div class="galeria">
 
-        <h2 class="section-title">📍 Onde estamos</h2>
+        <img
+            class="foto-interativa"
+            src="imagens/0693a3ab-1d8d-4e59-abd4-4058d67c7a18.jpeg"
+            alt="Serviço de terraplanagem"
+        >
 
-        <p class="location">
-            Três Coroas - RS<br>
-            Bairro Sander<br>
-            Rua Visconde de Mauá
-        </p>
+        <img
+            class="foto-interativa"
+            src="imagens/48367f24-7c3a-43cf-830b-4aa92a0f8298.jpeg"
+            alt="Máquina trabalhando"
+        >
 
-    </section>
+        <img
+            class="foto-interativa"
+            src="imagens/d694a499-97f0-455a-bf3c-a2d0b08bc8d6.jpeg"
+            alt="Serviço realizado"
+        >
+
+    </div>
+
+
+    <div class="botoes">
+
+        <a
+            class="botao"
+            href="https://www.instagram.com/dioniterraplanagem_"
+            target="_blank"
+        >
+            📸 Instagram
+        </a>
+
+        <a
+            class="botao dark"
+            href="https://wa.me/5551998230264"
+            target="_blank"
+        >
+            💬 WhatsApp
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================
+     LOCALIZAÇÃO
+================================== -->
+
+<section>
+
+    <h2 class="titulo">📍 Onde estamos</h2>
+
+    <p class="localizacao">
+
+        <strong>Três Coroas - RS</strong><br>
+
+        Bairro Sander<br>
+
+        Rua Visconde de Mauá, 1079
+
+    </p>
+
+</section>
+
 
 </div>
 
+
 <footer>
+
     Dioni Motos Racing • Dioni Terraplanagem
+
 </footer>
+
+
+<!-- ==================================
+     VISUALIZADOR DE FOTOS
+================================== -->
+
+<div class="modal" id="modal">
+
+    <button
+        class="fechar"
+        id="fechar"
+        aria-label="Fechar"
+    >
+        ×
+    </button>
+
+    <img
+        id="imagemModal"
+        src=""
+        alt="Foto ampliada"
+    >
+
+</div>
+
+
+<script>
+
+/* ==================================
+   FOTOS INTERATIVAS
+================================== */
+
+const fotos = document.querySelectorAll(".foto-interativa");
+
+const modal = document.getElementById("modal");
+
+const imagemModal = document.getElementById("imagemModal");
+
+const fechar = document.getElementById("fechar");
+
+
+fotos.forEach(function(foto) {
+
+    foto.addEventListener("click", function() {
+
+        imagemModal.src = foto.src;
+
+        imagemModal.alt = foto.alt;
+
+        modal.classList.add("aberto");
+
+    });
+
+});
+
+
+function fecharModal() {
+
+    modal.classList.remove("aberto");
+
+    imagemModal.src = "";
+
+}
+
+
+fechar.addEventListener("click", fecharModal);
+
+
+modal.addEventListener("click", function(event) {
+
+    if (event.target === modal) {
+
+        fecharModal();
+
+    }
+
+});
+
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        fecharModal();
+
+    }
+
+});
+
+
+/* ==================================
+   ANIMAÇÃO AO ROLAR
+================================== */
+
+const secoes = document.querySelectorAll("section");
+
+const observador = new IntersectionObserver(
+
+    function(entries) {
+
+        entries.forEach(function(entry) {
+
+            if (entry.isIntersecting) {
+
+                entry.target.style.opacity = "1";
+
+                entry.target.style.transform = "translateY(0)";
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold: 0.12
+    }
+
+);
+
+
+secoes.forEach(function(secao) {
+
+    observador.observe(secao);
+
+});
+
+</script>
 
 </body>
 </html>
